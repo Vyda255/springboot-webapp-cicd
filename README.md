@@ -22,11 +22,7 @@ Jenkins automates the application build, code quality analysis, Docker image cre
 * Monitor AWS resources using Amazon CloudWatch.
 
 ---
-
-## 2. Architecture
-
-![image alt]
-## 3. Technologies Used
+## 2. Technologies Used
 
 | Technology                | Purpose                               |
 | ------------------------- | ------------------------------------- |
@@ -48,7 +44,7 @@ Jenkins automates the application build, code quality analysis, Docker image cre
 
 ---
 
-# 4. Implementation Steps
+# 3. Implementation Steps
 
 ## Step 1: Create the Spring Boot Application
 
@@ -368,7 +364,7 @@ Metric availability depends on the resource configuration, monitoring settings, 
 
 ---
 
-# 5. Final CI/CD Workflow
+# 4. Final CI/CD Workflow
 
 The implemented workflow connects source code management, continuous integration, code quality analysis, containerization, and cloud deployment.
 
@@ -414,47 +410,7 @@ Amazon CloudWatch monitors the configured AWS resources, including relevant ECS 
 
 ---
 
-# 6. Project Screenshots
-
-Screenshots documenting the implementation can be added to the repository.
-1. EC2 instance details.
-
-2. Jenkins dashboard.
-4. SonarQube dashboard.
-5. Jenkins pipeline stages.
-6. Successful Jenkins build and console output.
-7. Amazon ECR repository containing the image.
-8. ECS cluster and service.
-9. ECS task status.
-10. Application Load Balancer and target group.
-11. Application running through the load balancer.
-
-
-## Jenkins Pipeline
-
-![Jenkins Pipeline](screenshots/jenkins-pipeline.png)
-
-## SonarQube Dashboard
-
-![SonarQube Dashboard](screenshots/sonarqube-dashboard.png)
-
-## Amazon ECR
-
-![Amazon ECR](screenshots/ecr-repository.png)
-
-## Amazon ECS
-
-![Amazon ECS](screenshots/ecs-service.png)
-
-## Application Access
-
-![Application](screenshots/application.png)
-
-## CloudWatch Monitoring
-
-![CloudWatch Metrics](screenshots/cloudwatch-metrics.png)
-
-# 7. Key Learnings
+# 6. Key Learnings
 
 Through this project, I gained practical experience in:
 
@@ -470,10 +426,14 @@ Through this project, I gained practical experience in:
 * Monitoring AWS resources with CloudWatch.
 * Managing application source code and pipeline configuration using GitHub.
 
-# 8. Conclusion
+---
+
+# 7. Conclusion
 
 This project demonstrates the integration of Jenkins, Maven, SonarQube, Docker, and AWS services to establish a CI/CD workflow for a Spring Boot application.
 
 It covers the process from application development and source code management to automated build, code analysis, container image publishing, cloud deployment, load balancing, and monitoring.
 
 The project provided hands-on experience in implementing a cloud-based CI/CD workflow using DevOps tools and AWS container services.
+
+---
