@@ -155,15 +155,21 @@ java --version
 
 2)sudo wget -O /etc/apt/keyrings/jenkins-keyring.asc \
   https://pkg.jenkins.io/debian-stable/jenkins.io-2026.key
+
 echo "deb [signed-by=/etc/apt/keyrings/jenkins-keyring.asc]" \
   https://pkg.jenkins.io/debian-stable binary/ | sudo tee \
   /etc/apt/sources.list.d/jenkins.list > /dev/null
+
 sudo apt update
+
 sudo apt install jenkins -y
 
 3)Now,start and enable Jenkins using the following commands:
+
 sudo systemctl enable jenkins
+
 sudo systemctl start jenkins
+
 sudo systemctl status jenkins //shows active and running.
 
 
@@ -172,8 +178,11 @@ sudo systemctl status jenkins //shows active and running.
 I installed Docker on the same EC2 instance using the following commands:
 
 sudo apt install docker.io -y
+
 sudo systemctl start docker  //starts docker
+
 sudo systemctl enable docker //enables docker
+
 docker --version  //checks docker version installed.
 
 
@@ -192,10 +201,15 @@ Restart jenkins to apply the changes.
 
 I installed SonarQube on the same Ubuntu EC2 instance by becoming a sonar user and following commands:
 sudo wget https://binaries.sonarsource.com/Distribution/sonarqube/sonarqube-26.9.0.129388.zip  //downloads sonar binaries which is a zip file
+
 sudo unzip sonarqube-26.9.0.129388.zip //extract the zip file
+
 sudo mv ~/sonarqube-26.9.0.129388 /opt/sonarqube
+
 sudo chown -R sonar:sonar /opt/sonarqube
-udo systemctl daemon-reload
+
+sudo systemctl daemon-reload
+
 sudo systemctl start sonarqube
 
 The SonarQube installation was configured as a service and started successfully.
@@ -219,6 +233,7 @@ SonarQube was used to analyze the application's source code for potential bugs, 
 ## Step 8: Install AWS On The Same EC2 Instnace:
 
 sudo snap install asw-cli --classic
+
 aws configure //provide IAM User details
 
 ## Step 9: Install the Required Jenkins Plugins
@@ -244,14 +259,14 @@ The Jenkins pipeline used the SonarQube integration to submit the analysis.
 
 The Docker Pipeline plugin and Docker daemon access enabled the pipeline to execute Docker-related stages.
 
-## Step 9: Configure AWS Access for Jenkins
+## Step 10: Configure AWS Access for Jenkins
 
 I configured AWS access for the pipeline by adding environment variables so it could authenticate with AWS and publish Docker images to Amazon ECR.
 
 AWS access was configured using the available AWS authentication mechanism and appropriate permissions.
 
 
-## Step 10: Create the Jenkinsfile
+## Step 11: Create the Jenkinsfile
 
 I created a `Jenkinsfile` to define the CI/CD pipeline as code.
 
@@ -270,7 +285,7 @@ The major pipeline stages were:
 
 The Jenkinsfile defined the execution steps and the required environment configuration for each stage.
 
-## Step 11: Execute the Jenkins Pipeline
+## Step 12: Execute the Jenkins Pipeline
 
 I configured a Jenkins pipeline job using the source code repository and Jenkinsfile.
 
@@ -280,7 +295,7 @@ The pipeline was used to validate the application build, submit code analysis to
 
 Pipeline execution was verified through the Jenkins console output and build status.
 
-## Step 12: Build the Application Using Maven
+## Step 13: Build the Application Using Maven
 
 Maven was used to compile the application, execute the configured tests, and package the application into a JAR artifact.
 
@@ -288,7 +303,7 @@ The Maven build was executed as part of the Jenkins pipeline.
 
 The resulting JAR artifact was then used to create the Docker image.
 
-## Step 13: Perform Static Code Analysis
+## Step 14: Perform Static Code Analysis
 
 The pipeline integrated with SonarQube to analyze the application source code.
 
@@ -296,7 +311,7 @@ The analysis results were available in the SonarQube dashboard.
 
 This integration demonstrated how code quality analysis can be incorporated into a CI/CD workflow.
 
-## Step 14: Create the Docker Image
+## Step 15: Create the Docker Image
 
 I created a Dockerfile to package the Spring Boot application artifact into a container image.
 
@@ -304,7 +319,7 @@ The Docker image included the application artifact and the required Java runtime
 
 The image was built as part of the Jenkins pipeline.
 
-## Step 15: Push the Docker Image to Amazon ECR
+## Step 16: Push the Docker Image to Amazon ECR
 
 I created an Amazon ECR repository named `springboot-app`.
 
@@ -314,7 +329,7 @@ The image was verified in the Amazon ECR console.
 
 Amazon ECR served as the container image registry for the ECS deployment.
 
-## Step 16: Deploy the Application to Amazon ECS
+## Step 17: Deploy the Application to Amazon ECS
 
 I configured Amazon ECS to run the containerized Spring Boot application using the image stored in ECR.
 
@@ -326,7 +341,7 @@ The ECS service managed the running tasks according to its configuration.
 
 The application was deployed using the image published to Amazon ECR.
 
-## Step 17: Configure the Application Load Balancer
+## Step 18: Configure the Application Load Balancer
 
 I configured an Application Load Balancer to provide access to the deployed application.
 
@@ -338,7 +353,7 @@ The load balancer routed incoming requests to healthy application targets.
 
 The application was accessed through the load balancer DNS name after verifying that the targets were healthy.
 
-## Step 18: Configure Amazon CloudWatch Monitoring
+## Step 19: Configure Amazon CloudWatch Monitoring
 
 I used Amazon CloudWatch to inspect the metrics available for the configured AWS resources.
 
