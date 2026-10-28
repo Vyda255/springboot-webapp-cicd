@@ -25,9 +25,7 @@ Jenkins automates the application build, code quality analysis, Docker image cre
 
 ## 2. Architecture
 
-![image alt]{}
-
-
+![image alt]
 ## 3. Technologies Used
 
 | Technology                | Purpose                               |
@@ -150,10 +148,12 @@ Commands:
 1) //update the system and create java environment:
 
 sudo apt update
+
 sudo apt install fontconfig openjdk-21-jdk
+
 java --version
 
-2)sudo wget -O /etc/apt/keyrings/jenkins-keyring.asc \
+2) sudo wget -O /etc/apt/keyrings/jenkins-keyring.asc \
   https://pkg.jenkins.io/debian-stable/jenkins.io-2026.key
 
 echo "deb [signed-by=/etc/apt/keyrings/jenkins-keyring.asc]" \
@@ -164,13 +164,13 @@ sudo apt update
 
 sudo apt install jenkins -y
 
-3)Now,start and enable Jenkins using the following commands:
+3) Now,start and enable Jenkins using the following commands:
 
 sudo systemctl enable jenkins
 
 sudo systemctl start jenkins
 
-sudo systemctl status jenkins //shows active and running.
+sudo systemctl status jenkins      //shows active and running.
 
 
 ## Step 6: Install Docker
@@ -200,7 +200,7 @@ Restart jenkins to apply the changes.
 ## Step 7: Install and Configure SonarQube
 
 I installed SonarQube on the same Ubuntu EC2 instance by becoming a sonar user and following commands:
-sudo wget https://binaries.sonarsource.com/Distribution/sonarqube/sonarqube-26.9.0.129388.zip  //downloads sonar binaries which is a zip file
+sudo wget https://binaries.sonarsource.com/Distribution/sonarqube/sonarqube-26.9.0.129388.zip  //downloads sonar binaries   which is a zip file
 
 sudo unzip sonarqube-26.9.0.129388.zip //extract the zip file
 
@@ -415,7 +415,7 @@ Amazon CloudWatch monitors the configured AWS resources, including relevant ECS 
 
 Screenshots documenting the implementation can be added to the repository.
 1. EC2 instance details.
-![EC2 Instance]{https://github.com/Vyda255/springboot-webapp-cicd/blob/8d105727eaf99a3c12b2682efefff9e27914ac33/EC2%20Configuration.jpg}
+
 2. Jenkins dashboard.
 4. SonarQube dashboard.
 5. Jenkins pipeline stages.
@@ -425,7 +425,6 @@ Screenshots documenting the implementation can be added to the repository.
 9. ECS task status.
 10. Application Load Balancer and target group.
 11. Application running through the load balancer.
-12. CloudWatch metrics.
 
 
 ## Jenkins Pipeline
