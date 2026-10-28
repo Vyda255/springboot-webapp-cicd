@@ -415,6 +415,7 @@ Amazon CloudWatch monitors the configured AWS resources, including relevant ECS 
 
 Screenshots documenting the implementation can be added to the repository.
 1. EC2 instance details.
+![EC2 Instance]{https://github.com/Vyda255/springboot-webapp-cicd/blob/8d105727eaf99a3c12b2682efefff9e27914ac33/EC2%20Configuration.jpg}
 2. Jenkins dashboard.
 4. SonarQube dashboard.
 5. Jenkins pipeline stages.
