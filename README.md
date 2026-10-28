@@ -146,14 +146,17 @@ The Jenkins web interface was accessed through a browser using the EC2 instance 
 
 Commands: 
 1) //update the system and create java environment:
-
+```bash
 sudo apt update
 
 sudo apt install fontconfig openjdk-21-jdk
 
 java --version
-
-2) sudo wget -O /etc/apt/keyrings/jenkins-keyring.asc \
+```
+2) 
+Installing Jenkins
+```bash
+sudo wget -O /etc/apt/keyrings/jenkins-keyring.asc \
   https://pkg.jenkins.io/debian-stable/jenkins.io-2026.key
 
 echo "deb [signed-by=/etc/apt/keyrings/jenkins-keyring.asc]" \
@@ -163,20 +166,19 @@ echo "deb [signed-by=/etc/apt/keyrings/jenkins-keyring.asc]" \
 sudo apt update
 
 sudo apt install jenkins -y
-
+```
 3) Now,start and enable Jenkins using the following commands:
-
+```bash
 sudo systemctl enable jenkins
 
 sudo systemctl start jenkins
 
 sudo systemctl status jenkins      //shows active and running.
-
-
+```
 ## Step 6: Install Docker
 
 I installed Docker on the same EC2 instance using the following commands:
-
+```bash
 sudo apt install docker.io -y
 
 sudo systemctl start docker  //starts docker
@@ -184,22 +186,23 @@ sudo systemctl start docker  //starts docker
 sudo systemctl enable docker //enables docker
 
 docker --version  //checks docker version installed.
-
+```
 
 The Docker service was checked using:
-
+```bash
 sudo systemctl status docker
-
+```
 I also configured Jenkins to access the Docker daemon so that pipeline jobs could execute Docker commands,by adding jenkins to docker group:
-
+```bash
 sudo usermod -aG docker jenkins
-
+```
 Restart jenkins to apply the changes.
 
 
 ## Step 7: Install and Configure SonarQube
 
 I installed SonarQube on the same Ubuntu EC2 instance by becoming a sonar user and following commands:
+```bash
 sudo wget https://binaries.sonarsource.com/Distribution/sonarqube/sonarqube-26.9.0.129388.zip  //downloads sonar binaries   which is a zip file
 
 sudo unzip sonarqube-26.9.0.129388.zip //extract the zip file
@@ -211,7 +214,7 @@ sudo chown -R sonar:sonar /opt/sonarqube
 sudo systemctl daemon-reload
 
 sudo systemctl start sonarqube
-
+```
 The SonarQube installation was configured as a service and started successfully.
 
 SonarQube was accessed through its configured web interface.
@@ -231,11 +234,11 @@ The authentication token was stored in Jenkins Credentials rather than hardcoded
 SonarQube was used to analyze the application's source code for potential bugs, code smells, and maintainability issues.
 
 ## Step 8: Install AWS On The Same EC2 Instnace:
-
+```bash
 sudo snap install asw-cli --classic
 
 aws configure //provide IAM User details
-
+```
 ## Step 9: Install the Required Jenkins Plugins
 
 I installed the Jenkins plugins needed for the CI/CD pipeline.
